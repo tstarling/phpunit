@@ -11,9 +11,6 @@ require_once __DIR__ . '/../../bootstrap.php';
 
 PHPUnit\TextUI\Application::main();
 --EXPECTF--
-PHPUnit %s by Sebastian Bergmann and contributors.
-
-
 ##teamcity[testCount count='3' flowId='%d']
 
 ##teamcity[testSuiteStarted name='PHPUnit\TestFixture\BankAccountTest' locationHint='php_qn://%s%etests%e_files%eBankAccountTest.php::\PHPUnit\TestFixture\BankAccountTest' flowId='%d']
@@ -31,8 +28,3 @@ PHPUnit %s by Sebastian Bergmann and contributors.
 ##teamcity[testFinished name='testBalanceCannotBecomeNegative2' duration='%s' flowId='%d']
 
 ##teamcity[testSuiteFinished name='PHPUnit\TestFixture\BankAccountTest' flowId='%d']
-
-
-Time: %s, Memory: %s
-
-OK (3 tests, 3 assertions)
