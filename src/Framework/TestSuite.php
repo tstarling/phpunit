@@ -280,10 +280,9 @@ class TestSuite implements IteratorAggregate, SelfDescribing, Test
 
             foreach ($groups as $group) {
                 if (!isset($this->groups[$group])) {
-                    $this->groups[$group] = [$test];
-                } else {
-                    $this->groups[$group][] = $test;
+                    $this->groups[$group] = [];
                 }
+                $this->groups[$group][] = spl_object_hash( $test );
             }
 
             if ($test instanceof TestCase) {
@@ -519,17 +518,9 @@ class TestSuite implements IteratorAggregate, SelfDescribing, Test
         return array_keys($this->groups);
     }
 
-    public function getGroupDetails(): array
+    public function getGroupHashes(): array
     {
         return $this->groups;
-    }
-
-    /**
-     * Set tests groups of the test case.
-     */
-    public function setGroupDetails(array $groups): void
-    {
-        $this->groups = $groups;
     }
 
     /**
@@ -626,6 +617,7 @@ class TestSuite implements IteratorAggregate, SelfDescribing, Test
 
             $test->run($result);
         }
+        $this->tests = [];
 
         try {
             foreach ($hookMethods['afterClass'] as $afterClassMethod) {

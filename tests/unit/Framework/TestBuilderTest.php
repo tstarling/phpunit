@@ -30,7 +30,7 @@ final class TestBuilderTest extends TestCase
         $test = (new TestBuilder)->build(new ReflectionClass(EmptyDataProviderTest::class), 'testCase');
         $this->assertInstanceOf(DataProviderTestSuite::class, $test);
         /* @var DataProviderTestSuite $test */
-        $this->assertInstanceOf(SkippedTestCase::class, $test->getGroupDetails()['default'][0]);
+        $this->assertInstanceOf(SkippedTestCase::class, $test->tests()[0]);
     }
 
     /**

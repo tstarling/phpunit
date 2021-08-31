@@ -31,13 +31,8 @@ abstract class GroupFilterIterator extends RecursiveFilterIterator
     {
         parent::__construct($iterator);
 
-        foreach ($suite->getGroupDetails() as $group => $tests) {
+        foreach ($suite->getGroupHashes() as $group => $testHashes) {
             if (in_array((string) $group, $groups, true)) {
-                $testHashes = array_map(
-                    'spl_object_hash',
-                    $tests
-                );
-
                 $this->groupTests = array_merge($this->groupTests, $testHashes);
             }
         }
