@@ -210,19 +210,6 @@ final class TestRunner extends BaseTestRunner
             unset($sorter);
         }
 
-        if (is_int($arguments['repeat']) && $arguments['repeat'] > 0) {
-            $_suite = new TestSuite;
-
-            /* @noinspection PhpUnusedLocalVariableInspection */
-            foreach (range(1, $arguments['repeat']) as $step) {
-                $_suite->addTest($suite);
-            }
-
-            $suite = $_suite;
-
-            unset($_suite);
-        }
-
         $result = $this->createTestResult();
 
         $listener       = new TestListenerAdapter;
@@ -1265,7 +1252,6 @@ final class TestRunner extends BaseTestRunner
         $arguments['processUncoveredFilesFromWhitelist']              = $arguments['processUncoveredFilesFromWhitelist'] ?? false;
         $arguments['randomOrderSeed']                                 = $arguments['randomOrderSeed'] ?? time();
         $arguments['registerMockObjectsFromTestArgumentsRecursively'] = $arguments['registerMockObjectsFromTestArgumentsRecursively'] ?? false;
-        $arguments['repeat']                                          = $arguments['repeat'] ?? false;
         $arguments['reportHighLowerBound']                            = $arguments['reportHighLowerBound'] ?? 90;
         $arguments['reportLowUpperBound']                             = $arguments['reportLowUpperBound'] ?? 50;
         $arguments['reportUselessTests']                              = $arguments['reportUselessTests'] ?? true;

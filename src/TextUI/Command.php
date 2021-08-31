@@ -141,7 +141,6 @@ class Command
         'order-by='                 => null,
         'printer='                  => null,
         'process-isolation'         => null,
-        'repeat='                   => null,
         'dont-report-useless-tests' => null,
         'random-order'              => null,
         'random-order-seed='        => null,
@@ -548,11 +547,6 @@ class Command
 
                 case '--process-isolation':
                     $this->arguments['processIsolation'] = true;
-
-                    break;
-
-                case '--repeat':
-                    $this->arguments['repeat'] = (int) $option[1];
 
                     break;
 

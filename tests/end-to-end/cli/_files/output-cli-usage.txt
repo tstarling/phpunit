@@ -71,7 +71,6 @@ Test Execution Options:
   --debug                     Display debugging information
 
   --loader <loader>           TestSuiteLoader implementation to use
-  --repeat <times>            Runs the test(s) repeatedly
   --teamcity                  Report test execution progress in TeamCity format
   --testdox                   Report test execution progress in TestDox format
   --testdox-group             Only include tests from the specified group(s)
